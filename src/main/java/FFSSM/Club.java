@@ -4,21 +4,22 @@
 package FFSSM;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Club {
+    private Moniteur president;
 
- 
-    public Moniteur president;
+    private Club emmeteur;
+    private List<Plongee> activites;
+    private String nom;
 
-    public String nom;
+    private String adresse;
 
-    public String adresse;
+    private String telephone;
 
-    public String telephone;
-
-    public Club(Moniteur président, String nom, String telephone) {
-        this.president = président;
+    public Club(Moniteur president, String nom, String telephone) {
+        this.president = president;
         this.nom = nom;
         this.telephone = telephone;
     }
@@ -39,8 +40,7 @@ public class Club {
      * @param p la nouvelle plongée
      */
     public void organisePlongee(Plongee p) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        this.activites.add(p);
     }
     
     
@@ -74,6 +74,10 @@ public class Club {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public List<Plongee> getActivites() {
+        return activites;
     }
 
     @Override

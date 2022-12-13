@@ -5,6 +5,7 @@ package FFSSM;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Plongee {
@@ -13,6 +14,7 @@ public class Plongee {
 
 	public Moniteur chefDePalanquee;
 
+	private List<Licence> palanquee;
 	public LocalDate date;
 
 	public int profondeur;
@@ -28,8 +30,7 @@ public class Plongee {
 	}
 
 	public void ajouteParticipant(Plongeur participant) {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		palanquee.add(participant.derniereLicence());
 	}
 
 	public LocalDate getDate() {
@@ -43,8 +44,15 @@ public class Plongee {
 	 * @return vrai si la plongée est conforme
 	 */
 	public boolean estConforme() {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		boolean res= true;
+		LocalDate now= LocalDate.now();
+		for(Licence list: palanquee){
+			if(!list.estValide(now)){
+				res=false;
+				break;
+			}
+		}
+		return res;
 	}
 
 }
