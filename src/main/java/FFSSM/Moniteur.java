@@ -45,4 +45,8 @@ public class Moniteur extends Plongeur {
          return embauches;
     }
 
+    public void terminerEmbauche(LocalDate fin) {
+        embauches.get(embauches.size() - 1 ).terminer(fin);
+    }
+
 }

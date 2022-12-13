@@ -4,6 +4,7 @@
 package FFSSM;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -27,10 +28,13 @@ public class Plongee {
 		this.date = date;
 		this.profondeur = profondeur;
 		this.duree = duree;
+		this.palanquee = new ArrayList<>();
 	}
 
 	public void ajouteParticipant(Plongeur participant) {
-		palanquee.add(participant.derniereLicence());
+		if(!participant.getLicences().isEmpty()){
+			palanquee.add(participant.derniereLicence());
+		}
 	}
 
 	public LocalDate getDate() {
